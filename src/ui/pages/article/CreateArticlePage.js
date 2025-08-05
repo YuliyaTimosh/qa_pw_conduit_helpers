@@ -44,7 +44,7 @@ export class CreateArticlePage {
       tagsToProcess = [tag];
     }
 
-    await test.step(`fill article tag field`, async () => {
+    await test.step(`Fill article tag field`, async () => {
       for (const item of tagsToProcess) {
         await this.articleTagField.fill(item);
         await this.page.keyboard.press('Enter');

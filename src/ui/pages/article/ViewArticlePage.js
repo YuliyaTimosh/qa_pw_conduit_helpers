@@ -26,7 +26,7 @@ export class ViewArticlePage {
   }
 
   async assertArticleTagIsVisible(tag) {
-    await test.step(`Assert the article has correct text'`, async () => {
+    await test.step(`Assert the article has correct tag'`, async () => {
       await expect(this.page.getByText(tag)).toBeVisible();
     });
   }
@@ -37,7 +37,8 @@ export class ViewArticlePage {
   }
 
   async assertArticleDescriptionIsVisible(text) {
-    await test.step(`Assert the description has correct text'`, async () => {
+    // eslint-disable-next-line max-len
+    await test.step(`Assert the article description is visible on the profile page`, async () => {
       await this.profileButton.click();
       await this.page.waitForURL('**/profile/**');
       await this.page.reload();

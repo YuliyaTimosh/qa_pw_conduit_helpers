@@ -55,14 +55,14 @@ test('edit the article text', async ({ page }) => {
 
 test('add a tag for the article without tags', async () => {
   await viewArticlePage.editArticleButtonClick();
-  await editArticlePage.eddTag('edited');
+  await editArticlePage.addTag('edited');
   await editArticlePage.clickUpdateArticleButton();
   await viewArticlePage.assertArticleTagIsVisible('edited');
 });
 
 test('add a tag for the article with tags', async () => {
   await viewArticlePage.editArticleButtonClick();
-  await editArticlePage.eddTag('edited2');
+  await editArticlePage.addTag('edited2');
   await editArticlePage.clickUpdateArticleButton();
   await viewArticlePage.assertArticleTagIsVisible('edited2');
 });
@@ -71,7 +71,6 @@ test('remove a tag for the article with tags', async () => {
   await viewArticlePage.editArticleButtonClick();
   await editArticlePage.removeTag();
   await editArticlePage.clickUpdateArticleButton();
-  //HOW TO check whether tag is removed??
 });
 
 test('remove article title', async () => {

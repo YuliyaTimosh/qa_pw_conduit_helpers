@@ -32,21 +32,21 @@ export class EditArticlePage {
     });
   }
 
-  async eddTag(text) {
-    await test.step(`edd tag to the article`, async () => {
+  async addTag(text) {
+    await test.step(`Add tag to the article`, async () => {
       await this.tagField.fill(text);
       await this.page.keyboard.press('Enter');
     });
   }
 
   async clickUpdateArticleButton() {
-    await test.step(`click 'update Article Button'`, async () => {
+    await test.step(`Click 'Update Article' button`, async () => {
       await this.updateArticleButton.click();
     });
   }
 
   async removeTag() {
-    await test.step(`remove add tag`, async () => {
+    await test.step(`Remove tag`, async () => {
       await this.removeTagButton.click();
     });
   }
