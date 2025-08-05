@@ -51,6 +51,11 @@ export class EditArticlePage {
     });
   }
 
+  async assertTagIsDeleted() {
+    await test.step(`Assert tag is deleted`, async () => {
+      await expect(this.removeTagButton).toBeHidden();
+    });
+  }
   async assertErrorMessageContainsText(messageText) {
     await test.step(`Assert the '${messageText}' error is shown`, async () => {
       await expect(this.errorMessage).toContainText(messageText);

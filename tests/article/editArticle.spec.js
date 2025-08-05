@@ -17,7 +17,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 
   let articleData = {};
   if (testInfo.title.includes('with tags')) {
-    articleData = generateNewArticleData(2);
+    articleData = generateNewArticleData(1);
   } else {
     articleData = generateNewArticleData();
   }
@@ -67,10 +67,13 @@ test('add a tag for the article with tags', async () => {
   await viewArticlePage.assertArticleTagIsVisible('edited2');
 });
 
-test('remove a tag for the article with tags', async () => {
+test('remove a tag for the article with tags', async ({ page }) => {
   await viewArticlePage.editArticleButtonClick();
   await editArticlePage.removeTag();
   await editArticlePage.clickUpdateArticleButton();
+  await page.waitForURL('**/article/**');
+  await page.reload();
+  await editArticlePage.assertTagIsDeleted();
 });
 
 test('remove article title', async () => {
